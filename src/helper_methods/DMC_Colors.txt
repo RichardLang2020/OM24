@@ -1,0 +1,1 @@
+// This file should have all the values for the DMC thread colors? Not sure how we want to handle this, maybe this goes straight into a global dictionary enumeration
