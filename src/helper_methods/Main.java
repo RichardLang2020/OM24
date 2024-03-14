@@ -13,9 +13,9 @@ import java.util.Map;
 public class Main {
 
 	public static void main(String[] args) throws Exception {
-		File input = new File("./src/helper_methods/Stardew_Floss_Colors.txt");
+		File input = new File("./src/helper_methods/Stardew Valley All Colors.txt");
 		BufferedReader reader = new BufferedReader(new FileReader(input));
-		File output = new File("./src/helper_methods/Unique_Stardew_Floss_Colors.txt");
+		File output = new File("./src/helper_methods/Stardew Valley Unique Colors.txt");
 		BufferedWriter writer = new BufferedWriter(new FileWriter(output, true));
 		Map<String, Integer> flossColors = new HashMap<String, Integer>();
 		
