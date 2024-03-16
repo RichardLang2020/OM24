@@ -50,6 +50,11 @@ public class Main {
 		    writer.append(name + "     " + flossColors.get(name) + '\n');
 		}
 		writer.close();
+		
+		
+		// Hannah Testing
+		DMCColor pls = new DMCColor("white","Fx000000","1");
+		System.out.println(pls.toString());
 	}
 
 }
