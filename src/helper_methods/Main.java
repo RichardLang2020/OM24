@@ -16,7 +16,7 @@ public class Main {
 		File input = new File("./src/resources/Stardew Valley All Colors.txt");
 		BufferedReader reader = new BufferedReader(new FileReader(input));
 		File output = new File("./src/resources/Stardew Valley Unique Colors.txt");
-		BufferedWriter writer = new BufferedWriter(new FileWriter(output, true));
+		BufferedWriter writer = new BufferedWriter(new FileWriter(output, false));
 		Map<String, Integer> flossColors = new HashMap<String, Integer>();
 		
 		// Finding out unique strings
@@ -31,6 +31,7 @@ public class Main {
 		    	List<String> flossList = Arrays.asList(line.split(","));
 		    	for(String floss : flossList) {
 		    		floss = floss.trim();
+		    		
 		    		if(flossColors.containsKey(floss)) {
 		    			flossColors.put(floss, flossColors.get(floss) + 1);
 		    		} else {
@@ -46,7 +47,7 @@ public class Main {
 		}
 		
 		for(String name : flossColors.keySet()) {
-		    System.out.println(name + "     " + flossColors.get(name));
+		    // System.out.println(name + "     " + flossColors.get(name));
 		    writer.append(name + "     " + flossColors.get(name) + '\n');
 		}
 		writer.close();
@@ -54,7 +55,7 @@ public class Main {
 		
 		// Hannah Testing
 		DMCColor pls = new DMCColor("white","Fx000000","1");
-		System.out.println(pls.toString());
+		// System.out.println(pls.toString());
 	}
 
 }
