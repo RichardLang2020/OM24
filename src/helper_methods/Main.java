@@ -18,6 +18,9 @@ public class Main {
 		File output = new File("./src/resources/Stardew Valley Unique Colors.txt");
 		BufferedWriter writer = new BufferedWriter(new FileWriter(output, false));
 		Map<String, Integer> flossColors = new HashMap<String, Integer>();
+		File input2 = new File("./src/resources/Richard Owned Colors.txt");
+		BufferedReader reader2 = new BufferedReader(new FileReader(input2));
+		Map<String, Integer> ownedColors = new HashMap<String, Integer>();
 		
 		// Finding out unique strings
 		try {
@@ -40,15 +43,40 @@ public class Main {
 		    	}
 		    }
 		    reader.close();
+
+		    while((line = reader2.readLine()) != null) {
+	    		// Skip commented lines
+		    	if(line.length() == 0 || line.substring(0, 2).equals("//")) {
+		    		continue;
+		    	}
+		    	
+		    	List<String> flossList = Arrays.asList(line.split(","));
+		    	for(String floss : flossList) {
+		    		floss = floss.trim();
+
+		    		if(ownedColors.containsKey(floss)) {
+		    			ownedColors.put(floss, ownedColors.get(floss) + 1);
+		    		} else {
+		    			ownedColors.put(floss, 1);
+		    		}
+		    	}
+		    }
+		    reader2.close();
+		    	
 		} catch (Exception e) {
 			reader.close();
+			reader2.close();
 			writer.close();
 			throw e;
 		}
 		
 		for(String name : flossColors.keySet()) {
-		    // System.out.println(name + "     " + flossColors.get(name));
-		    writer.append(name + "     " + flossColors.get(name) + '\n');
+			if(!ownedColors.containsKey(name)) {
+			    System.out.println("New floss color " + name + " needs to be purchased!");
+			    writer.append(name + "     " + flossColors.get(name) + '\n');
+			} else {
+				System.out.println("We already own the color " + name);
+			}
 		}
 		writer.close();
 		
