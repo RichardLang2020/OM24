@@ -82,14 +82,15 @@ public class Main {
 		
 		
 		// Hannah Testing
-		hexColor exampleHex = new hexColor(255,255,50);
+		hexColor exampleHex = new hexColor("#ABCDEF");
+		
 		System.out.println(exampleHex.getHex());
 		System.out.println(exampleHex.getRGB());
 		System.out.println(exampleHex.getRed());
 		System.out.println(exampleHex.getGreen());
 		System.out.println(exampleHex.getBlue());
 		
-		DMCColor pls = new DMCColor("white","Fx000000","1");
+		//DMCColor pls = new DMCColor("white","#000000","1");
 		// System.out.println(pls.toString());
 	}
 
